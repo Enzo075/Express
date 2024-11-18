@@ -4,14 +4,10 @@ const express = require('express');
 // Criando uma aplicação Express
 const app = express();
 
-// Rota principal
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+const apiRouter = require('./routes');
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: false }));
 
-// Rota adicional
-app.get('/about', (req, res) => {
-    res.send('Este é um servidor básico com Express.');
-});
+app.use(apiRouter);
 
 exports.app = app

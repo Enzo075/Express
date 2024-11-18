@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // Importa a instância do Sequelize configurada
+const sequelize = require('../db/database'); // Importa a instância do Sequelize configurada
 
 const User = sequelize.define('User', {
     // Definição dos campos da tabela
