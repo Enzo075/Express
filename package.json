@@ -4,7 +4,7 @@
     "description": "Um projeto básico",
     "main": "index.js",
     "scripts": {
-        "start": "node src/index.js",
+        "start": "nodemon src/index.js",
         "test": "echo \"Nenhum teste configurado\" && exit 0"
     },
     "keywords": [],
@@ -13,6 +13,7 @@
     "dependencies": {
         "dotenv": "^16.4.5",
         "express": "^4.21.1",
+        "nodemon": "^3.1.9",
         "pg": "^8.13.1",
         "pg-hstore": "^2.3.4",
         "sequelize": "^6.37.5"

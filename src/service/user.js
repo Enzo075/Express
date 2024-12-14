@@ -28,7 +28,46 @@ const createUser = async (req, res) => {
     
 }
 
+const deleteUser = async (req, res) => {
+
+    try {
+        const userId = req.params.id;
+        console.log("🚀 ~ deleteUser ~ userId:", userId)
+        const user = await User.destroy({
+            where: {
+                id: userId,
+            }
+        }); //  Await - não faz nada até retornar qualquer informação desde erro até a informação que procuro
+        console.log("🚀 ~ deleteUser ~ user:", user)
+        res.status(200).json(user); // Retorna o valor de user no formato json
+    } catch (error) {
+        res.status(500).json({status: 'error', message: 'Erro ao criar o Usuario', error})
+    }
+    
+}
+
+const updateUser = async (req, res) => {
+    console.log("🚀 ~ updateUser ~ req:", req)
+    try {
+        const userId = req.params.id;
+        const userData = req.body;
+        console.log("🚀 ~ updateUser ~ userId:", userId)
+        const user = await User.update(userData,{
+              
+            where: {
+                    id: userId
+                },
+            },
+        );
+
+        console.log("🚀 ~ updateUser ~ user:", user)
+        res.status(200).json(user); // Retorna o valor de user no formato json
+    } catch (error) {
+        res.status(500).json({status: 'error', message: 'Erro ao criar o Usuario', error})
+    }
+    
+}
 
 exports.userService = {
-    findById, createUser
+    findById, createUser, deleteUser, updateUser
 };
