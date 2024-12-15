@@ -4,7 +4,7 @@
     "description": "Um projeto básico",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon src/index.js",
+        "start": "nodemon -y --inspect src/index.js",
         "test": "echo \"Nenhum teste configurado\" && exit 0"
     },
     "keywords": [],
